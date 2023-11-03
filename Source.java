@@ -1,20 +1,36 @@
-class Node<T> {
+import java.util.ArrayList;
+class Node<T>
+{
     T val;
     Node<T> next;
-    
-    public Node(T val) {
-      this.val = val;
-      this.next = null;
+
+    public Node(T val)
+    {
+        this.val = val;
+        this.next = null;
     }
-  }
-  
-  class Source {
-    public static <T> boolean linkedListFind(Node<T> head, T target) {
-      // todo
-      return false;
+}
+
+class Source
+{
+    public static <T> boolean linkedListFind(Node<T> head, T target)
+    {
+        ArrayList<Integer> values = new ArrayList<>();
+        Node<T> current = head;
+
+        while (current != null)
+        {
+            if(current.val == target)
+            {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
     }
-    
-    public static void main(String[] args) {
+
+    public static void main(String[] args)
+    {
         Node<String> a = new Node<>("a");
         Node<String> b = new Node<>("b");
         Node<String> c = new Node<>("c");
@@ -27,7 +43,7 @@ class Node<T> {
         // a -> b -> c -> d
 
         System.out.println(Source.linkedListFind(a, "c"));
-        
+
     }
 
-  }
+}
