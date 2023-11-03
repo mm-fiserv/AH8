@@ -1,29 +1,35 @@
 class Node<T> {
-  T val;
-  Node<T> next;
-  
-  public Node(T val) {
-    this.val = val;
-    this.next = null;
-  }
+    T val;
+    Node<T> next;
+
+    public Node(T val) {
+        this.val = val;
+        this.next = null;
+    }
 }
 
 class ECSource {
-  public static <T> T getNodeValue(Node<T> head, int index) {
-    // todo - note the return type, but don't overthink it
-    return;
-  }
-  
-  public static void main(String[] args) {
-    Node<String> node1 = new Node<>("banana");
-    Node<String> node2 = new Node<>("mango");
-    Node<String> node3 = new Node<>("kiwi");
+    public static <T> T getNodeValue(Node<T> head, int index) {
+        Node<T> test = head;
+        for (int i = 0; i < index; i++)
+        {
+            test=test.next;
+        }
+        if (test==null)
+            return null;
+        return test.val;
+    }
 
-    node1.next = node2;
-    node2.next = node3;
+    public static void main(String[] args) {
+        Node<String> node1 = new Node<>("banana");
+        Node<String> node2 = new Node<>("mango");
+        Node<String> node3 = new Node<>("kiwi");
 
-    // banana -> mango -> kiwi
+        node1.next = node2;
+        node2.next = node3;
 
-    System.out.println(ECSource.getNodeValue(node1, 1));
-  }
+        // banana -> mango -> kiwi
+
+        System.out.println(ECSource.getNodeValue(node1, 2));
+    }
 }
